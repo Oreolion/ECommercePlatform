@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { TiThMenu } from "react-icons/ti";
 import { MdClose } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -64,12 +65,10 @@ const Navbar = () => {
               Login
             </Link>{" "}
           </button>
-          <button className="signup-btn">
-            <Link to={`/signup`} className="link">
-              Sign Up
-            </Link>
-          </button>
         </div>
+            <Link to={`/cart`} className="cart link">
+              <FaShoppingCart size={30}></FaShoppingCart>
+            </Link>
         {!toggle ? (
           <TiThMenu id="menubtn" size={50} onClick={handleMenuBtn} />
         ) : (
@@ -120,6 +119,7 @@ const Navbar = () => {
           </div>
         </nav>
       )}
+      <Outlet></Outlet>
     </>
   );
 };
