@@ -32,30 +32,30 @@ const Navbar = () => {
           </Link>
         </div>
         <nav>
-        <ul className="navlists">
-          <li>
-            <Link to={`/`} className="link">
-              Home
-            </Link>
-          </li>
+          <ul className="navlists">
+            <li>
+              <Link to={`/`} className="link">
+                Home
+              </Link>
+            </li>
 
-          <li>
-            <Link to={`/services`} className="link">
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link to={`/pricing`} className="link">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link to={`/contact`} className="link">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
+            <li>
+              <Link to={`/shop`} className="link">
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link to={`/about`} className="link">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to={`/contact`} className="link">
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
         <div className="header__btn">
           <button className="login-btn">
@@ -75,9 +75,8 @@ const Navbar = () => {
         ) : (
           <MdClose id="menubtn" size={50} onClick={handleMenuBtn} />
         )}
-
       </header>
-     
+
       {/* mobile menu */}
       {menu && (
         <nav
@@ -92,12 +91,12 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link to={`/services`} className="link">
+              <Link to={`/shop`} className="link">
                 Shop
               </Link>
             </li>
             <li>
-              <Link to={`/pricing`} className="link">
+              <Link to={`/about`} className="link">
                 About Us
               </Link>
             </li>
