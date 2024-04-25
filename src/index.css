@@ -9,7 +9,6 @@
   color: #242424;
   --background-secondary: #2a3646;
   --background-primary: #131920;
-  --primary: #f9a23f;
   --secondary: #f7a08d;
   --accent: #ff8fc8;
 }
@@ -32,6 +31,7 @@ body {
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
   font-size: 80%;
 }
 
@@ -90,7 +90,7 @@ header {
 }
 
 .logo h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--secondary);
 }
 
@@ -180,7 +180,7 @@ section {
 }
 
 .img__box {
-  margin-top: 8rem;
+  /* margin-top: 2rem; */
   width: 75rem;
   height: 30rem;
   position: relative;
@@ -231,7 +231,7 @@ img {
 
 .choose__slide {
   position: absolute;
-  bottom: 6%;
+  bottom: 4%;
   display: flex;
   cursor: pointer;
 }
@@ -245,7 +245,6 @@ h1 {
 }
 
 .product__box {
-  /* border: 2px solid green; */
   display: flex;
   background-color: rgba(20, 20, 20, 0.4);
   padding: 2rem;
@@ -253,8 +252,22 @@ h1 {
   flex-wrap: wrap;
 }
 
-.box {
-  flex: 1 1 13rem;
+.product__box .box {
+  flex: 1 1 16rem;
+  width: 18rem;
+  height: 26rem;
+  border: 3px solid #555;
+  padding: 1rem 0;
+  cursor: pointer;
+  &:hover {
+    width: 19rem;
+    height: 27rem;
+  }
+}
+
+.box:hover .imgbox {
+    height: 17rem;
+    width: 17rem;
 }
 
 .imgbox {
@@ -283,10 +296,11 @@ h1 {
 footer {
   background-color: #000;
   padding: 3rem 5%;
+  height: 32rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 12rem;
   color: var(--secondary);
   text-align: center;
 }
@@ -395,8 +409,10 @@ footer li {
   }
 
 
-  .footer {
+  footer {
     flex-direction: column;
+    height: 64rem;
+
   }
 }
 

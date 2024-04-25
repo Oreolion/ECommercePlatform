@@ -1,7 +1,13 @@
+import Footer from "../components/Footer";
 
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
+    <>
+    <div style={{marginTop:"20rem" }}>
+    <Footer></Footer>
+
+    </div>
+    </>
   )
 }
 

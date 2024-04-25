@@ -1,8 +1,13 @@
+import Footer from "../components/Footer";
 
 const ContactUs = () => {
   return (
-    <div>ContactUs</div>
-  )
-}
+    <>
+      <div style={{ marginTop: "20rem" }}>
+        <Footer></Footer>
+      </div>
+    </>
+  );
+};
 
-export default ContactUs
+export default ContactUs;

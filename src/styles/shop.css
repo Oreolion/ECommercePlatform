@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&family=Jersey+25&display=swap");
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Jersey 25", sans-serif;
+  --animate-duration: 3000ms;
+  color-scheme: light dark;
+  color: #242424;
+  --background-secondary: #2a3646;
+  --background-primary: #131920;
+  --secondary: #f7a08d;
+  --accent: #ff8fc8;
+}
+
+section {
+  margin-top: 10rem;
+}
+
+.topbox {
+  height: 14rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchbox {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 30rem;
+}
+
+.searchinput {
+  height: 4rem;
+  width: 28rem;
+  text-indent: 1rem;
+  border-radius: 2rem;
+  outline: none;
+}
+
+.search-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 4%;
+  &:hover {
+    color: var(--secondary);
+  }
+}
+
+select {
+  height: 4rem;
+  width: 20rem;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 3%;
+  }
+  .topbox {
+    /* flex-direction: column; */
+  }
+
+  .searchinput {
+    width: 22rem;
+  }
+
+  select {
+    width: 16rem;
+  }
+}

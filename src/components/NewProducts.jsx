@@ -10,7 +10,7 @@ const NewProducts = () => {
   const fetchNewProducts = async () => {
     try {
       const response = await axios.get(
-        "https://fakestoreapi.com/products?limit=16"
+        "https://fakestoreapi.com/products?limit=8"
       );
       console.log(response);
       setNewProducts(response.data);
