@@ -3,9 +3,11 @@ import "../styles/shop.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchProducts();
@@ -18,12 +20,16 @@ const Shop = () => {
       setProducts(response.data);
     } catch (error) {
       console.log(error.message);
+    } finally {
+        setIsLoading(false)
     }
   };
   return (
     <>
       <section>
-        <div className="topbox">
+        {isLoading ? <Loader></Loader> : (
+            <>
+              <div className="topbox">
           {/* search input */}
           <div className="searchbox">
             <AiOutlineSearch size={45} className="search-btn" />
@@ -57,6 +63,9 @@ const Shop = () => {
             );
           })}
         </div>
+            </>
+        )}
+      
       </section>
       <Footer></Footer>
     </>

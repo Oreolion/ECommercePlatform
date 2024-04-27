@@ -324,6 +324,69 @@ footer li {
   gap: 2rem;
   cursor: pointer;
 }
+/* LOADER */
+
+.spinner-box {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin3D 2.8s linear 0s infinite;
+
+}
+.leo-border-1 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgb(63,249,220);
+    background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+    animation: spin3D 1.8s linear 0s infinite;
+  }
+  
+  .leo-core-1 {
+    width: 100%;
+    height: 100%;
+    background-color: #37474faa;
+    border-radius: 50%;
+  }
+  
+  .leo-border-2 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgb(251, 91, 83);
+    background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
+    animation: spin3D 3.2s linear 0s infinite;
+  }
+  
+  .leo-core-2 {
+    width: 100%;
+    height: 100%;
+    background-color: #1d2630aa;
+    border-radius: 50%;
+  }
+
+  @keyframes spin3D {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
 
 @media (max-width: 768px) {
   section {
