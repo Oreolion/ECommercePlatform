@@ -378,12 +378,13 @@ footer li {
     border-radius: 50%;
   }
 
-  @keyframes spin3D {
-    0% {
-      transform: rotateY(0deg);
+ 
+@keyframes spin3D {
+    from {
+      transform: rotate3d(.5,.5,.5, 360deg);
     }
-    100% {
-      transform: rotateY(360deg);
+    to{
+      transform: rotate3d(0deg);
     }
   }
   

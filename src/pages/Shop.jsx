@@ -8,6 +8,8 @@ import Loader from "../components/Loader";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(undefined);
+  const [searchData, setSearchData] = useState("");
 
   useEffect(() => {
     fetchProducts();
@@ -21,53 +23,91 @@ const Shop = () => {
     } catch (error) {
       console.log(error.message);
     } finally {
-        setIsLoading(false)
+      setIsLoading(false);
     }
   };
+
+  let arr = [];
+  let sortedList;
+  products.map((item) => {
+    arr.push(item.category);
+  });
+
+  sortedList = [...new Set(arr)];
+
+  const handleSort = (e) => {
+    setData(e.target.value);
+  };
+  const handleSearch = (e) => {
+    setSearchData(e.target.value);
+    console.log(searchData);
+  };
+
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchData.toLowerCase())
+  );
+
   return (
     <>
       <section>
-        {isLoading ? <Loader></Loader> : (
-            <>
-              <div className="topbox">
-          {/* search input */}
-          <div className="searchbox">
-            <AiOutlineSearch size={45} className="search-btn" />
-            <input
-              className="searchinput"
-              type="text"
-              placeholder="search Items"
-            />
-          </div>
-          <div className="optgroup">
-            <select name="items" id="">
-              <option value="">--Please choose an option--</option>
-              <option value="dog">Clothes</option>
-              <option value="cat">Bags</option>
-              <option value="hamster">Shoes</option>
-              <option value="parrot">Jewelries</option>
-              <option value="spider">Gadgets</option>
-            </select>
-          </div>
-        </div>
-        <div className="product__box">
-          {products.map((product) => {
-            return (
-              <div className="box" key={product.id}>
-                <div className="imgbox">
-                  <img src={product.image} alt="" />
-                </div>
-                <h3>{product.title}</h3>
-                <h3 className="price">${product.price}</h3>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className="topbox">
+              {/* search input */}
+              <div className="searchbox">
+                <AiOutlineSearch size={45} className="search-btn" />
+                <input
+                  className="searchinput"
+                  type="text"
+                  value={searchData}
+                  placeholder="Search Items"
+                  onChange={handleSearch}
+                />
               </div>
-            );
-          })}
-        </div>
-            </>
+              <div className="optgroup">
+                <select name="items" id="" onChange={handleSort}>
+                  <option value="">--Please choose an option--</option>
+                  {sortedList.map((item) => (
+                    <option value={item} key={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="product__box">
+              {filteredProducts.length > 0 ? (
+                data
+                  ? filteredProducts
+                      .filter((item) => item.category === data)
+                      .map((filteredItem) => (
+                        <div className="box" key={filteredItem.id}>
+                          <div className="imgbox">
+                            <img src={filteredItem.image} alt="" />
+                          </div>
+                          <h3>{filteredItem.title}</h3>
+                          <h3 className="price">${filteredItem.price}</h3>
+                        </div>
+                      ))
+                  : filteredProducts.map((product) => (
+                      <div className="box" key={product.id}>
+                        <div className="imgbox">
+                          <img src={product.image} alt="" />
+                        </div>
+                        <h3>{product.title}</h3>
+                        <h3 className="price">${product.price}</h3>
+                      </div>
+                    ))
+              ) : (
+                <div className="nomatch__box">OOPS! Your search did not match any of our products.</div>
+              )}
+            </div>
+          </>
         )}
-      
       </section>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };

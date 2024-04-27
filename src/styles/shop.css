@@ -55,6 +55,17 @@ select {
   height: 4rem;
   width: 20rem;
   background-color: transparent;
+  text-indent: 0.3rem;
+}
+
+.nomatch__box {
+  height: 14rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 3rem;
 }
 
 @media (max-width: 768px) {
