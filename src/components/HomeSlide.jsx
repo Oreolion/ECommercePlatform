@@ -6,13 +6,10 @@ import picture2 from "../assets/images/pexels-bohlemedia-1884581.jpg";
 import picture3 from "../assets/images/pexels-rdne-5698852.jpg";
 import picture4 from "../assets/images/xianjuan-hu-uPYpcsbICI4-unsplash.jpg";
 import picture5 from "../assets/images/matt-liu-FT7J1SONJA8-unsplash.jpg";
-import picture6 from "../assets/images/jelleke-vanooteghem-MohB4LCIPyM-unsplash.jpg";
 import "animate.css";
-import { useRef } from "react";
 
 const HomeSlide = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const ref = useRef(null);
 
   const slides = [
     {
@@ -36,10 +33,7 @@ const HomeSlide = () => {
       picture: picture5,
       title: "pic5",
     },
-    {
-      picture: picture6,
-      title: "pic6",
-    },
+   
   ];
 
   const prevSlide = () => {
@@ -68,7 +62,6 @@ const HomeSlide = () => {
           <img
             className="animate__animated animate__fadeInRight"
             src={slides[currentIndex].picture}
-            ref={ref}
             alt="img1"
           />
         </div>
