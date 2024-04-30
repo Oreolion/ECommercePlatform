@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import Navbar from "./components/Navbar";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
@@ -21,7 +20,6 @@ function App() {
           <Route path="/contact" element={<ContactUs />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
         </Route>
-
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="*" element={<NotFound />}></Route>

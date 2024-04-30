@@ -25,6 +25,7 @@ section {
   align-items: center;
 }
 
+
 .searchbox {
   display: flex;
   gap: 1rem;
@@ -68,6 +69,39 @@ select {
   font-size: 3rem;
 }
 
+/* .isactive,
+.innerbox {
+  display: block;
+  border: 3px solid red;
+  height: 30rem;
+  width: 30rem;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  right: 25%;
+  background-color: rgba(220, 220, 220, 0.5);
+  position: fixed;
+}
+
+.innerbox .imgbox {
+  height: 25rem;
+  width: 25rem;
+  margin: 0 auto;
+}
+
+.innerbox h3 {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 16rem;
+}
+
+.innerbox .price {
+  background-color: rgba(20, 20, 20, 0.8);
+  margin: 0 auto;
+  color: green;
+  width: 15rem;
+} */
+
 @media (max-width: 768px) {
   section {
     padding: 2rem 3%;
@@ -82,5 +116,11 @@ select {
 
   select {
     width: 16rem;
+  }
+
+  .isactive,
+  .innerbox {
+    left: 15%;
+    right: 25%;
   }
 }

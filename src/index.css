@@ -5,7 +5,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-family: "Jersey 25", sans-serif;
   --animate-duration: 3000ms;
-  color-scheme: light dark;
   color: #242424;
   --background-secondary: #2a3646;
   --background-primary: #131920;
@@ -91,6 +90,7 @@ header {
 
 .logo h3 {
   font-size: 2.5rem;
+  white-space: nowrap;
   color: var(--secondary);
 }
 
@@ -152,13 +152,30 @@ header {
 }
 
 .cart {
-    padding: 2rem;
-    color: var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgba(20, 20, 20, 0.4);
+  padding: 2rem;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(20, 20, 20, 0.4);
+  position: relative;
+}
+
+.cart .cartsize {
+  background-color: #ddd;
+  border-radius: 50%;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  top: 10%;
+  right: 22%;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile__menu {
@@ -267,8 +284,8 @@ h1 {
 }
 
 .box:hover .imgbox {
-    height: 17rem;
-    width: 17rem;
+  height: 17rem;
+  width: 17rem;
 }
 
 .imgbox {
@@ -314,7 +331,7 @@ footer li {
   font-size: 1.4rem;
   margin-bottom: 1rem;
   &:hover {
-    opacity: .6;
+    opacity: 0.6;
     letter-spacing: 1px;
   }
 }
@@ -324,70 +341,76 @@ footer li {
   gap: 2rem;
   cursor: pointer;
 }
+
 /* LOADER */
 
 .spinner-box {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: spin3D 2.8s linear 0s infinite;
-
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin3D 2.8s linear 0s infinite;
 }
 .leo-border-1 {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: rgb(63,249,220);
-    background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
-    animation: spin3D 1.8s linear 0s infinite;
-  }
-  
-  .leo-core-1 {
-    width: 100%;
-    height: 100%;
-    background-color: #37474faa;
-    border-radius: 50%;
-  }
-  
-  .leo-border-2 {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: rgb(251, 91, 83);
-    background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
-    animation: spin3D 3.2s linear 0s infinite;
-  }
-  
-  .leo-core-2 {
-    width: 100%;
-    height: 100%;
-    background-color: #1d2630aa;
-    border-radius: 50%;
-  }
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63, 249, 220);
+  background: linear-gradient(
+    0deg,
+    rgba(63, 249, 220, 0.1) 33%,
+    rgba(63, 249, 220, 1) 100%
+  );
+  animation: spin3D 1.8s linear 0s infinite;
+}
 
- 
+.leo-core-1 {
+  width: 100%;
+  height: 100%;
+  background-color: #37474faa;
+  border-radius: 50%;
+}
+
+.leo-border-2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(251, 91, 83);
+  background: linear-gradient(
+    0deg,
+    rgba(251, 91, 83, 0.1) 33%,
+    rgba(251, 91, 83, 1) 100%
+  );
+  animation: spin3D 3.2s linear 0s infinite;
+}
+
+.leo-core-2 {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630aa;
+  border-radius: 50%;
+}
+
 @keyframes spin3D {
-    from {
-      transform: rotate3d(.5,.5,.5, 360deg);
-    }
-    to{
-      transform: rotate3d(0deg);
-    }
+  from {
+    transform: rotate3d(0.5, 0.5, 0.5, 360deg);
   }
-  
+  to {
+    transform: rotate3d(0deg);
+  }
+}
 
 @media (max-width: 768px) {
   section {
@@ -472,11 +495,9 @@ footer li {
     justify-content: center;
   }
 
-
   footer {
     flex-direction: column;
     height: 64rem;
-
   }
 }
 

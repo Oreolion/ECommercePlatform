@@ -10,6 +10,7 @@ const Shop = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(undefined);
   const [searchData, setSearchData] = useState("");
+  const [newCart, setNewCart] = useState([]);
 
   useEffect(() => {
     fetchProducts();
@@ -41,6 +42,15 @@ const Shop = () => {
   const handleSearch = (e) => {
     setSearchData(e.target.value);
     console.log(searchData);
+  };
+  useEffect(() => {
+    console.log("New cart:", newCart);
+  }, [newCart]);
+
+
+  const handleNewCart = (product) => {
+    setNewCart((prevCart) => [...prevCart, product]);
+    localStorage.setItem("carts", JSON.stringify(newCart) )
   };
 
   const filteredProducts = products.filter((product) =>
@@ -79,29 +89,38 @@ const Shop = () => {
             </div>
             <div className="product__box">
               {filteredProducts.length > 0 ? (
-                data
-                  ? filteredProducts
-                      .filter((item) => item.category === data)
-                      .map((filteredItem) => (
-                        <div className="box" key={filteredItem.id}>
-                          <div className="imgbox">
-                            <img src={filteredItem.image} alt="" />
-                          </div>
-                          <h3>{filteredItem.title}</h3>
-                          <h3 className="price">${filteredItem.price}</h3>
-                        </div>
-                      ))
-                  : filteredProducts.map((product) => (
-                      <div className="box" key={product.id}>
+                data ? (
+                  filteredProducts
+                    .filter((item) => item.category === data)
+                    .map((filteredItem) => (
+                      <div className="box" key={filteredItem.id}>
                         <div className="imgbox">
-                          <img src={product.image} alt="" />
+                          <img src={filteredItem.image} alt="" />
                         </div>
-                        <h3>{product.title}</h3>
-                        <h3 className="price">${product.price}</h3>
+                        <h3>{filteredItem.title}</h3>
+                        <h3 className="price">${filteredItem.price}</h3>
                       </div>
                     ))
+                ) : (
+                  filteredProducts.map((product) => (
+                    <div className="box" key={product.id}>
+                      <div className="imgbox">
+                        <img src={product.image} alt="" />
+                      </div>
+                      <h3>{product.title}</h3>
+                      <h3
+                        className="price"
+                        onClick={() => handleNewCart(product)}
+                      >
+                        {product.price}
+                      </h3>
+                    </div>
+                  ))
+                )
               ) : (
-                <div className="nomatch__box">OOPS! Your search did not match any of our products.</div>
+                <div className="nomatch__box">
+                  OOPS! Your search did not match any of our products.
+                </div>
               )}
             </div>
           </>

@@ -40,11 +40,6 @@ const HomeSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    // if (newIndex === currentIndex + 1) {
-    //    return ref.current.className = 'active'
-    //   } else {
-    //     ref.current.classList.remove('active');
-    //   }
   };
   const nextSlide = () => {
     const isLastSlide = currentIndex === slides.length - 1;

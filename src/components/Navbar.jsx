@@ -3,12 +3,21 @@ import { TiThMenu } from "react-icons/ti";
 import { MdClose } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [toggle, setToggle] = useState(false);
-  //   const navigate = useNavigate();
 
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    setCart((prevCart) => [
+      ...prevCart,
+      JSON.parse(localStorage.getItem("carts")),
+    ]);
+    console.log(cart);
+  }, []);
   const handleMenuBtn = () => {
     setToggle(!toggle);
     setMenu(!menu);
@@ -66,9 +75,12 @@ const Navbar = () => {
             </Link>{" "}
           </button>
         </div>
-            <Link to={`/cart`} className="cart link">
-              <FaShoppingCart size={30}></FaShoppingCart>
-            </Link>
+        <Link to={`/cart`} className="cart link">
+            <div className="cartsize">
+                {cart.length}
+            </div>
+          <FaShoppingCart size={30}></FaShoppingCart>
+        </Link>
         {!toggle ? (
           <TiThMenu id="menubtn" size={50} onClick={handleMenuBtn} />
         ) : (
