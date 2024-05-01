@@ -6,25 +6,27 @@ import { useContext } from "react";
 
 
 const Cart = () => {
-    const { cart,  } = useContext(CartContext);
-    const [myCart, setMyCart] = useState(cart);
+    const { cart  } = useContext(CartContext);
+
+
 
   useEffect(() => {
     console.log(cart);
+   
   }, []);
 
   return (
     <>
       <section className="">
-        {myCart.length ? (
+        {cart?.length ? (
           <>
             <div>
               {cart.map((item) => {
                 return (
                   <>
-                    <div className="innerbox">
+                    <div className="innerbox" key={item.id}>
                       <div className="imgbox">
-                        <img src="" alt="img" />
+                        <img src={item.image} alt="img" />
                       </div>
                       <h3>{item.title}</h3>
                       <h3 className="price">${item.price}</h3>

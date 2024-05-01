@@ -16,7 +16,6 @@ const Shop = () => {
 
   useEffect(() => {
     fetchProducts();
-    console.log(cart);
     console.log(newCart);
   }, [newCart]);
 
@@ -52,7 +51,7 @@ const Shop = () => {
 
   const handleNewCart = (product) => {
     setNewCart((prevCart) => [...prevCart, product]);
-    updateGlobalState((cart)=>[...cart, product])
+    updateGlobalState(product);
   };
 
   const filteredProducts = products.filter((product) =>
@@ -100,7 +99,7 @@ const Shop = () => {
                           <img src={filteredItem.image} alt="" />
                         </div>
                         <h3>{filteredItem.title}</h3>
-                        <h3 className="price">${filteredItem.price}</h3>
+                        <h3 className="price"   onClick={() => handleNewCart(filteredItem)}>${filteredItem.price}</h3>
                       </div>
                     ))
                 ) : (

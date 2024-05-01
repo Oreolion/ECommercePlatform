@@ -14,11 +14,11 @@ const Navbar = () => {
 //   const [cart, setCart] = useState(mycart);
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
     // setCart((prevCart) => [...prevCart, cart]);
     // updateGlobalState((prevCart) => [...prevCart, cart])
     // console.log(cart);
-  }, [cart]);
+  }, []);
 
 
   const handleMenuBtn = () => {
