@@ -1,15 +1,21 @@
+import { useEffect } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 
- const CartContext = createContext([]);
+const CartContext = createContext([]);
 
 // eslint-disable-next-line react/prop-types
-const CartContextProvider = ({children}) => {
-  const [cart, setCart] = useState([]);
+const CartContextProvider = ({ children }) => {
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const updateGlobalState = (newState) => {
-    setCart((prev)=> [...prev, newState]);
-
+    setCart((prev) => [...prev, newState]);
   };
 
   return (
@@ -19,4 +25,4 @@ const CartContextProvider = ({children}) => {
   );
 };
 
-export  {CartContextProvider, CartContext};
+export { CartContextProvider, CartContext };
