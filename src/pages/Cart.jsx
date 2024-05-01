@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 import "../styles/cart.css";
 import { useState } from "react";
+import { CartContext } from "../components/CartContext.jsx";
+import { useContext } from "react";
+
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+    const { cart,  } = useContext(CartContext);
+    const [myCart, setMyCart] = useState(cart);
 
   useEffect(() => {
-    setCart((prevCart) => [
-      ...prevCart,
-      JSON.parse(localStorage.getItem("carts")),
-    ]);
     console.log(cart);
-  }, [cart]);
+  }, []);
 
   return (
     <>
       <section className="">
-        {cart.length ? (
+        {myCart.length ? (
           <>
             <div>
               {cart.map((item) => {

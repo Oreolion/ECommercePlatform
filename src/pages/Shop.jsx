@@ -1,20 +1,26 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import "../styles/shop.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
+import { CartContext } from "../components/CartContext.jsx";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(undefined);
   const [searchData, setSearchData] = useState("");
-  const [newCart, setNewCart] = useState([]);
+  const { cart, updateGlobalState } = useContext(CartContext);
+  const [newCart, setNewCart] = useState(cart);
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+    console.log(cart);
+    console.log(newCart);
+  }, [newCart]);
+
+
 
   const fetchProducts = async () => {
     try {
@@ -43,14 +49,10 @@ const Shop = () => {
     setSearchData(e.target.value);
     console.log(searchData);
   };
-  useEffect(() => {
-    console.log("New cart:", newCart);
-  }, [newCart]);
-
 
   const handleNewCart = (product) => {
     setNewCart((prevCart) => [...prevCart, product]);
-    localStorage.setItem("carts", JSON.stringify(newCart) )
+    updateGlobalState((cart)=>[...cart, product])
   };
 
   const filteredProducts = products.filter((product) =>

@@ -8,23 +8,26 @@ import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import NotFound from "./components/NotFound";
+import { CartContextProvider } from "./components/CartContext.jsx";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route exact path="/" element={<Homepage />}></Route>
-          <Route path="/about" element={<AboutUs />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
-          <Route path="/contact" element={<ContactUs />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-        </Route>
-        <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-        <Route path="/*" element={<NotFound />}></Route>
-      </Routes>
+      <CartContextProvider>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route exact path="/" element={<Homepage />}></Route>
+            <Route path="/about" element={<AboutUs />}></Route>
+            <Route path="/shop" element={<Shop />}></Route>
+            <Route path="/contact" element={<ContactUs />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+          </Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
+        </Routes>
+      </CartContextProvider>
     </>
   );
 }

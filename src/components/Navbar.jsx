@@ -4,20 +4,23 @@ import { MdClose } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { useEffect } from "react";
+import { CartContext } from "./CartContext.jsx";
+import { useContext } from "react";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [toggle, setToggle] = useState(false);
-
-  const [cart, setCart] = useState([]);
+  const { cart, updateGlobalState } = useContext(CartContext);
+//   const [cart, setCart] = useState(mycart);
 
   useEffect(() => {
-    setCart((prevCart) => [
-      ...prevCart,
-      JSON.parse(localStorage.getItem("carts")),
-    ]);
     console.log(cart);
-  }, []);
+    // setCart((prevCart) => [...prevCart, cart]);
+    // updateGlobalState((prevCart) => [...prevCart, cart])
+    // console.log(cart);
+  }, [cart]);
+
+
   const handleMenuBtn = () => {
     setToggle(!toggle);
     setMenu(!menu);
@@ -76,9 +79,7 @@ const Navbar = () => {
           </button>
         </div>
         <Link to={`/cart`} className="cart link">
-            <div className="cartsize">
-                {cart.length}
-            </div>
+          <div className="cartsize">{cart.length}</div>
           <FaShoppingCart size={30}></FaShoppingCart>
         </Link>
         {!toggle ? (
