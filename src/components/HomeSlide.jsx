@@ -1,4 +1,5 @@
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { FaStar } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
 import { useState } from "react";
 import picture1 from "../assets/images/clark-street-mercantile-qnKhZJPKFD8-unsplash.jpg";
@@ -84,6 +85,17 @@ const HomeSlide = () => {
               <RxDotFilled size={30} />
             </div>
           ))}
+        </div>
+        <div className="lowerbox">
+            <h1> SHOP QUALITY WEARS, BAGS, SHOES, JEWELRIES AND OTHER ACCESSORIES.</h1>
+            <div className="starbox">
+            <FaStar size={25}/>
+            <FaStar size={25}/>
+            <FaStar size={25}/>
+            <FaStar size={25}/>
+            <FaStar size={25}/>
+            </div>
+           
         </div>
       </section>
     </>

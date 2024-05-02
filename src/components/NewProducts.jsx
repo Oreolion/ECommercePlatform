@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 const NewProducts = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { cart, updateGlobalState } = useContext(CartContext);
+  const [, setNewCart] = useState(cart);
 
   useEffect(() => {
     fetchNewProducts();
@@ -12,7 +16,7 @@ const NewProducts = () => {
   const fetchNewProducts = async () => {
     try {
       const response = await axios.get(
-        "https://fakestoreapi.com/products?limit=7"
+        "https://fakestoreapi.com/products?limit=6"
       );
       console.log(response);
       setNewProducts(response.data);
@@ -23,13 +27,18 @@ const NewProducts = () => {
     }
   };
 
+  const handleNewCart = (product) => {
+    setNewCart((prevCart) => [...prevCart, product]);
+    updateGlobalState(product);
+  };
+
   return (
     <>
       {isLoading ? (
         <Loader></Loader>
       ) : (
         <>
-          <section>
+          <section className="product__section">
             <h1>NEW ARRIVALS</h1>
             <div className="product__box">
               {newProducts.map((product) => {
@@ -39,7 +48,7 @@ const NewProducts = () => {
                       <img src={product.image} alt="" />
                     </div>
                     <h3>{product.title}</h3>
-                    <h3 className="price">${product.price}</h3>
+                    <h3 className="price" onClick={() => handleNewCart(product)}>${product.price}</h3>
                   </div>
                 );
               })}

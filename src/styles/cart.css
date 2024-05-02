@@ -78,13 +78,13 @@ h4 {
 }
 
 .cartbox .innerbox .product__info {
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 
 .cartbox .innerbox h3 {
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   max-width: 16rem;
 }
 
@@ -101,10 +101,36 @@ h4 {
 .cartbox .innerbox .price {
   background-color: rgba(20, 20, 20, 0.8);
   margin: 0 auto;
+  padding-top: 0.5rem;
   color: green;
-  width: 15rem;
+  width: 9rem;
   height: 3rem;
 }
+
+.product__info p {
+  max-width: 30rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.product__info .lowinfobox {
+  display: flex;
+  gap: 1rem;
+}
+
+.quantity {
+  display: flex;
+  gap: 1rem;
+  background-color: rgba(20, 20, 20, 0.8);
+  font-size: 2rem;
+  color: green;
+  width: 8rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .clr-btn {
   width: 34rem;
@@ -154,10 +180,15 @@ hr {
 
   .cartbox .innerbox {
     width: 36rem;
+    height: 30rem;
   }
 
   .cartbox .header {
     width: 36rem;
+  }
+
+  .product__info p {
+    max-width: 23rem;
   }
 
   .rightbox {
@@ -171,4 +202,7 @@ hr {
 }
 
 @media (max-width: 480px) {
+  .product__info p {
+    display: none;
+  }
 }

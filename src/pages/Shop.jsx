@@ -79,7 +79,7 @@ const Shop = () => {
               </div>
               <div className="optgroup">
                 <select name="items" id="" onChange={handleSort}>
-                  <option value="">--Please choose an option--</option>
+                  <option value="">--All Products--</option>
                   {sortedList.map((item) => (
                     <option value={item} key={item}>
                       {item}
@@ -89,6 +89,7 @@ const Shop = () => {
               </div>
             </div>
             <div className="product__box">
+            <h2> SHOP QUALITY WEARS, BAGS, SHOES, JEWELRIES AND OTHER ACCESSORIES.</h2>
               {filteredProducts.length > 0 ? (
                 data ? (
                   filteredProducts

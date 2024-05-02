@@ -10,7 +10,7 @@ import { useContext } from "react";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const { cart, updateGlobalState } = useContext(CartContext);
+  const { cart,  } = useContext(CartContext);
 //   const [cart, setCart] = useState(mycart);
 
   useEffect(() => {

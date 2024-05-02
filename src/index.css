@@ -188,16 +188,21 @@ section {
   margin-bottom: 3rem;
 }
 
+.product__section {
+    margin-top: 0rem;
+}
+
 /* HOMEPAGE SECTION */
 
 .homepage__section {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 .img__box {
-  /* margin-top: 2rem; */
   width: 75rem;
   height: 30rem;
   position: relative;
@@ -209,6 +214,7 @@ img {
 }
 .img__box img {
   position: absolute;
+  object-fit: cover;
   top: 0;
   left: 0;
   opacity: 0;
@@ -223,6 +229,7 @@ img {
   position: absolute;
   margin-top: 7rem;
   left: 6%;
+  top: 40%;
   cursor: pointer;
   background-color: rgba(20, 20, 20, 0.8);
   padding: 1rem;
@@ -244,6 +251,7 @@ img {
   justify-content: center;
   color: green;
   right: 6%;
+  top: 40%;
 }
 
 .choose__slide {
@@ -251,6 +259,27 @@ img {
   bottom: 4%;
   display: flex;
   cursor: pointer;
+}
+
+.homepage__section .lowerbox {
+    background: rgba(9, 9, 2, 0.85);
+    height: 14rem;
+    width: 100vw;
+    padding: 3rem 5%;
+}
+
+.homepage__section .lowerbox h1 {
+    color: rgb(173, 210, 118);
+}
+
+.starbox {
+    text-align: center;
+    margin-top: -1.5rem;
+}
+
+.starbox > * {
+    color: green;
+    margin-left: 1rem;
 }
 
 /* NEW PRODUCTS SECTION */
@@ -263,34 +292,35 @@ h1 {
 
 .product__box {
   display: flex;
-  background-color: rgba(20, 20, 20, 0.4);
+  background: rgba(225, 225, 225, 0.8);
   padding: 2rem;
-  gap: 3rem;
+  gap: 5rem;
   flex-wrap: wrap;
 }
 
 .product__box .box {
-  flex: 1 1 16rem;
-  width: 18rem;
+  flex: 1 1 20rem;
+  width:22rem;
   font-size: 1.4rem;
-  height: 26rem;
+  height: 34rem;
   border: 3px solid #555;
+  border-radius: 1rem;
   padding: 1rem 0;
   cursor: pointer;
   &:hover {
-    width: 19rem;
-    height: 27rem;
+    width: 22rem;
+    height: 34rem;
   }
 }
 
 .box:hover .imgbox {
-  height: 17rem;
-  width: 17rem;
+  height: 25rem;
+  width: 24rem;
 }
 
 .imgbox {
-  height: 15rem;
-  width: 15rem;
+  height: 23rem;
+  width: 21rem;
   padding: 1rem;
   margin: 0 auto;
 }
@@ -298,14 +328,18 @@ h1 {
 .box h3 {
   text-align: center;
   margin: 0 auto;
-  max-width: 16rem;
+  max-width: 20rem;
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
 }
 
 .box .price {
   background-color: rgba(20, 20, 20, 0.8);
   margin: 0 auto;
+  padding-top: .5rem;
   color: green;
   width: 15rem;
+  height: 2.5rem;
 }
 
 /* FOOTER SECTION */
@@ -494,6 +528,10 @@ footer li {
     align-items: center;
     justify-content: center;
   }
+
+  .homepage__section .lowerbox h1 {
+    font-size: 2.3rem;
+}
 
   footer {
     flex-direction: column;

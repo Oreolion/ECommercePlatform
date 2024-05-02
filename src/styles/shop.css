@@ -59,6 +59,15 @@ select {
   text-indent: 0.3rem;
 }
 
+.product__box h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: -2rem;
+    color: rgb(58, 90, 10);
+
+}
+
 .nomatch__box {
   height: 14rem;
   text-align: center;
@@ -69,38 +78,6 @@ select {
   font-size: 3rem;
 }
 
-/* .isactive,
-.innerbox {
-  display: block;
-  border: 3px solid red;
-  height: 30rem;
-  width: 30rem;
-  position: absolute;
-  top: 25%;
-  left: 35%;
-  right: 25%;
-  background-color: rgba(220, 220, 220, 0.5);
-  position: fixed;
-}
-
-.innerbox .imgbox {
-  height: 25rem;
-  width: 25rem;
-  margin: 0 auto;
-}
-
-.innerbox h3 {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 16rem;
-}
-
-.innerbox .price {
-  background-color: rgba(20, 20, 20, 0.8);
-  margin: 0 auto;
-  color: green;
-  width: 15rem;
-} */
 
 @media (max-width: 768px) {
   section {
