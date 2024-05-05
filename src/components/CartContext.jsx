@@ -2,7 +2,15 @@ import { useEffect } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 
-const CartContext = createContext([]);
+
+const cartInitialState = {
+    totalAmount: 0,
+    numberOfItems: 0,
+    cartItems: [],
+};
+
+const CartContext = createContext(cartInitialState);
+
 
 // eslint-disable-next-line react/prop-types
 const CartContextProvider = ({ children }) => {
@@ -15,7 +23,7 @@ const CartContextProvider = ({ children }) => {
   }, [cart]);
 
   const updateGlobalState = (newState) => {
-    setCart((prev) => [...prev, newState]);
+    setCart((prev) => [...prev.cartItems, newState]);
   };
 
   return (

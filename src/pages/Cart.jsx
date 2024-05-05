@@ -45,9 +45,9 @@ const Cart = () => {
                         <div className="lowinfobox">
                           <h3 className="price">${item.price}</h3>
                           <div className="quantity">
-                            <span onClick={() => setCount(count--)}>-</span>
+                            <span onClick={() => setCount(count - 1)}>-</span>
                             <span>{count}</span>
-                            <span onClick={() => setCount(count++)}>+</span>
+                            <span onClick={() => setCount(count + 1)}>+</span>
                           </div>
                         </div>
                       </div>

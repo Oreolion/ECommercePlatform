@@ -220,10 +220,6 @@ img {
   opacity: 0;
 }
 
-.img__box img.active {
-  opacity: 1;
-  transition: opacity 2000ms ease-in;
-}
 
 .left {
   position: absolute;
@@ -310,6 +306,9 @@ h1 {
   &:hover {
     width: 22rem;
     height: 34rem;
+    outline: 3px solid green;
+    outline-offset: 4px;
+
   }
 }
 

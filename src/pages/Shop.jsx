@@ -50,7 +50,7 @@ const Shop = () => {
   };
 
   const handleNewCart = (product) => {
-    setNewCart((prevCart) => [...prevCart, product]);
+    setNewCart((prevCart) => [...prevCart.cartItems, product]);
     updateGlobalState(product);
   };
 
