@@ -14,11 +14,7 @@ const Navbar = () => {
 //   const [cart, setCart] = useState(mycart);
 
   useEffect(() => {
-    // console.log(cart);
-    // setCart((prevCart) => [...prevCart, cart]);
-    // updateGlobalState((prevCart) => [...prevCart, cart])
-    // console.log(cart);
-  }, []);
+    }, [cart]);
 
 
   const handleMenuBtn = () => {
@@ -79,7 +75,8 @@ const Navbar = () => {
           </button>
         </div>
         <Link to={`/cart`} className="cart link">
-          <div className="cartsize">{cart.length}</div>
+          
+          <div className="cartsize">{!cart.cartItems.length ? 0 : cart.cartItems.length}</div>
           <FaShoppingCart size={30}></FaShoppingCart>
         </Link>
         {!toggle ? (

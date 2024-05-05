@@ -6,24 +6,29 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Cart = () => {
-  const { cart, updateGlobalState } = useContext(CartContext);
-  let [count, setCount] = useState(1);
+  const { cart, clearGlobalState } = useContext(CartContext);
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     console.log(cart);
-    console.log(count);
-  }, [cart, count]);
+  }, [cart]);
 
-  const clearCart = () => {
-    updateGlobalState(cart.length = 0);
+  const clearCart = async () => {
+    try {
+      window.confirm("Are you sure you want to clear your cart?");
+      clearGlobalState();
+
+      console.log("Cart cleared successfully!");
+    } catch (error) {
+      console.error("Error clearing cart:", error);
+    }
   };
-
   return (
     <>
       <section className="section">
         <div className="cartbox">
-          {cart?.length ? (
+          {cart.cartItems?.length ? (
             <>
               <div className="header">
                 <h1>YOUR SHOPPING CART</h1>
@@ -32,7 +37,7 @@ const Cart = () => {
                 </button>
               </div>
               <div>
-                {cart.map((item, i) => {
+                {cart.cartItems.map((item, i) => {
                   return (
                     <div className="innerbox" key={i}>
                       <div className="imgbox">
@@ -70,7 +75,7 @@ const Cart = () => {
             </>
           )}
         </div>
-        {cart.length > 0 && (
+        {cart.cartItems.length > 0 && (
           <div className="rightbox">
             <div className="subtotal boxed">
               <p>Subtotals(5 Items):</p>

@@ -28,7 +28,7 @@ const NewProducts = () => {
   };
 
   const handleNewCart = (product) => {
-    setNewCart((prevCart) => [...prevCart, product]);
+    setNewCart((prevCart) => [...(prevCart.cartItems || []), product]);
     updateGlobalState(product);
   };
 
@@ -48,7 +48,12 @@ const NewProducts = () => {
                       <img src={product.image} alt="" />
                     </div>
                     <h3>{product.title}</h3>
-                    <h3 className="price" onClick={() => handleNewCart(product)}>${product.price}</h3>
+                    <h3
+                      className="price"
+                      onClick={() => handleNewCart(product)}
+                    >
+                      ${product.price}
+                    </h3>
                   </div>
                 );
               })}
