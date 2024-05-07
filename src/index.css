@@ -444,6 +444,13 @@ br {
   font-size: 1.4rem;
 }
 
+.error-msg {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
 /* LOADER */
 
 .spinner-box {
