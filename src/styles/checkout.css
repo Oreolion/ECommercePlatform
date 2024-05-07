@@ -1,0 +1,33 @@
+.checkout__section {
+  margin-top: 9rem;
+  padding: 4rem 8%;
+  
+}
+
+.checkout__box {
+  min-width: 32rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.checkout__box .box {
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(220, 220, 220, 0.8);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.checkout__box h2 {
+    font-size: 1.6rem;
+}
+
+.checkout__box p {
+    font-size: 1.4rem;
+
+}

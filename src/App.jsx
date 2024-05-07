@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import Checkout from "./pages/Checkout.jsx";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
@@ -9,24 +10,37 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import NotFound from "./components/NotFound";
 import { CartContextProvider } from "./components/CartContext.jsx";
+import { UserContextProvider } from "./components/UserContext.jsx";
+import {ProtectedRoute} from "./utils/ProtectedRoute.jsx";
 
 function App() {
   return (
     <>
       <CartContextProvider>
-        <Routes>
-          <Route path="/" element={<Navbar />}>
-            <Route exact path="/" element={<Homepage />}></Route>
-            <Route path="/about" element={<AboutUs />}></Route>
-            <Route path="/shop" element={<Shop />}></Route>
-            <Route path="/contact" element={<ContactUs />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-          </Route>
-          <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-          <Route path="/*" element={<NotFound />}></Route>
-        </Routes>
+        <UserContextProvider>
+          <Routes>
+            <Route path="/" element={<Navbar />}>
+              <Route exact path="/" element={<Homepage />}></Route>
+              <Route path="/about" element={<AboutUs />}></Route>
+              <Route path="/shop" element={<Shop />}></Route>
+              <Route path="/contact" element={<ContactUs />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
+              <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <Checkout />
+                </ProtectedRoute>
+              }
+            ></Route>
+            </Route>
+            <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+           
+            <Route path="*" element={<NotFound />}></Route>
+            <Route path="/*" element={<NotFound />}></Route>
+          </Routes>
+        </UserContextProvider>
       </CartContextProvider>
     </>
   );

@@ -90,7 +90,7 @@ const Cart = () => {
               <p>{ (cart.totalAmount - (cart.totalAmount * 5 / 100)).toFixed(2)}</p>
             </div>
             <hr />
-            <button>Proceed to Checkout</button>
+            <button onClick={()=> navigate("/checkout")}>Proceed to Checkout</button>
           </div>
         )}
       </section>

@@ -1,23 +1,26 @@
 import { useState } from "react";
-import {authenticateUser} from "../utils.js";
+import { authenticateUser } from "../utils/utils.js";
 import { UserContext } from "../components/UserContext.jsx";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
- const Login = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogged, setIsLogged] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { user, updateUserState } = useContext(UserContext);
-
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const getUser = async () => {
       const response = await authenticateUser(email, password);
       response
-        ? (updateUserState(user), setIsLogged(true))
+        ? (updateUserState(response), setIsLogged(true), navigate("/checkout"))
         : setErrorMessage("INVALID USER OR PASSWORD");
       console.log(response);
+    //   updateUserState(response)
+      console.log(user);
     };
     getUser();
   };
@@ -55,6 +58,7 @@ import { useContext } from "react";
 
               <div className="btn-box">
                 <button onClick={handleLogin}>Login account</button>
+                <button onClick={() => navigate("/")}>Go Back to Home</button>
               </div>
             </div>
           </form>
