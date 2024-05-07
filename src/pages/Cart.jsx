@@ -14,7 +14,7 @@ const Cart = () => {
     console.log(cart);
   }, [cart]);
 
-  const clearCart = async () => {
+  const clearCart = () => {
     try {
       window.confirm("Are you sure you want to clear your cart?");
       clearGlobalState();
@@ -79,15 +79,15 @@ const Cart = () => {
           <div className="rightbox">
             <div className="subtotal boxed">
               <p>Subtotals(5 Items):</p>
-              <p>amount</p>
+              <p>{cart.totalAmount}</p>
             </div>
             <div className="discount boxed">
               <p>Discount(5% off):</p>
-              <p>amount</p>
+              <p> {(cart.totalAmount * 5 / 100).toFixed(2)}</p>
             </div>
             <div className="total boxed">
-              <p>Grand Total:</p>
-              <p>amount</p>
+              <p>Grand Total: </p>
+              <p>{ (cart.totalAmount - (cart.totalAmount * 5 / 100)).toFixed(2)}</p>
             </div>
             <hr />
             <button>Proceed to Checkout</button>

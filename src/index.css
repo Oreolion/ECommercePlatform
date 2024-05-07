@@ -189,7 +189,7 @@ section {
 }
 
 .product__section {
-    margin-top: 0rem;
+  margin-top: 0rem;
 }
 
 /* HOMEPAGE SECTION */
@@ -219,7 +219,6 @@ img {
   left: 0;
   opacity: 0;
 }
-
 
 .left {
   position: absolute;
@@ -258,24 +257,24 @@ img {
 }
 
 .homepage__section .lowerbox {
-    background: rgba(9, 9, 2, 0.85);
-    height: 14rem;
-    width: 100vw;
-    padding: 3rem 5%;
+  background: rgba(9, 9, 2, 0.85);
+  height: 14rem;
+  width: 100vw;
+  padding: 3rem 5%;
 }
 
 .homepage__section .lowerbox h1 {
-    color: rgb(173, 210, 118);
+  color: rgb(173, 210, 118);
 }
 
 .starbox {
-    text-align: center;
-    margin-top: -1.5rem;
+  text-align: center;
+  margin-top: -1.5rem;
 }
 
 .starbox > * {
-    color: green;
-    margin-left: 1rem;
+  color: green;
+  margin-left: 1rem;
 }
 
 /* NEW PRODUCTS SECTION */
@@ -296,7 +295,7 @@ h1 {
 
 .product__box .box {
   flex: 1 1 20rem;
-  width:22rem;
+  width: 22rem;
   font-size: 1.4rem;
   height: 34rem;
   border: 3px solid #555;
@@ -308,7 +307,6 @@ h1 {
     height: 34rem;
     outline: 3px solid green;
     outline-offset: 4px;
-
   }
 }
 
@@ -329,13 +327,13 @@ h1 {
   margin: 0 auto;
   max-width: 20rem;
   font-size: 1.4rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .box .price {
   background-color: rgba(20, 20, 20, 0.8);
   margin: 0 auto;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   color: green;
   width: 15rem;
   height: 2.5rem;
@@ -373,6 +371,77 @@ footer li {
   display: flex;
   gap: 2rem;
   cursor: pointer;
+}
+
+/* LOGIN PAGE */
+
+.login {
+    min-width: 35rem;
+    width: 80%;
+    padding: 0 10%;
+    margin: 2rem auto;
+}
+
+.login .right-box {
+  margin: 0 auto;
+  flex: 1 1 35%;
+  color: #ccc;
+  padding: 5rem;
+}
+
+.login h3 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  color:  rgb(173, 210, 118);
+  white-space: nowrap;
+
+}
+
+.login .right-box h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  color:  rgb(173, 210, 118);
+}
+
+.login p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: rgb(173, 210, 118) ;
+}
+
+.form__header {
+  margin-bottom: 2rem;
+}
+
+.inner__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner__form label {
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  color:  rgb(173, 210, 118);
+
+}
+
+br {
+  margin-bottom: 0.5rem;
+}
+
+.inner__form label input {
+  height: 4rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.login button {
+  text-align: center;
+  width: 95%;
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }
 
 /* LOADER */
@@ -530,7 +599,12 @@ footer li {
 
   .homepage__section .lowerbox h1 {
     font-size: 2.3rem;
-}
+  }
+
+  .login {
+    width: 100%;
+  }
+
 
   footer {
     flex-direction: column;
