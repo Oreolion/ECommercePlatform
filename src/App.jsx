@@ -12,7 +12,6 @@ import { UserContextProvider } from "./components/UserContext.jsx";
 import { ProtectedRoute } from "./utils/ProtectedRoute.jsx";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { useLocation } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 
 function App() {
   const location = useLocation();
@@ -20,6 +19,7 @@ function App() {
     <>
       <CartContextProvider>
         <UserContextProvider>
+        <Navbar />
           <SwitchTransition component={null}>
             <CSSTransition
               key={location.pathname}
@@ -28,8 +28,10 @@ function App() {
               unmountOnExit
             >
               <Routes location={location}>
-                <Route path="/" element={<Navbar />}>
-                  <Route exact path="/" element={<Homepage />}></Route>
+                {/* <Route path="/" element={<Navbar />}>
+                 
+                </Route> */}
+                <Route exact path="/" element={<Homepage />}></Route>
                   <Route path="/about" element={<AboutUs />}></Route>
                   <Route path="/shop" element={<Shop />}></Route>
                   <Route path="/cart" element={<Cart />}></Route>
@@ -41,8 +43,6 @@ function App() {
                       </ProtectedRoute>
                     }
                   ></Route>
-                  <Outlet />
-                </Route>
                 {/* <Route path="/signup" element={<SignUp />}></Route> */}
                 <Route path="/login" element={<Login />}></Route>
 
