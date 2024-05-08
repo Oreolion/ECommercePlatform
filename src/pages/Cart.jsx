@@ -31,7 +31,7 @@ const Cart = () => {
   };
   return (
     <>
-      <section className="section">
+      <section className="cart__section">
         <div className="cartbox">
           {cart.cartItems?.length ? (
             <>

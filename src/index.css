@@ -136,7 +136,9 @@ header {
 
   &:hover {
     opacity: 0.5;
+    border: 2px solid var(--secondary);
   }
+
 }
 
 .navlists li .link {
@@ -458,7 +460,7 @@ br {
 
 /* about section */
 .about__box {
-    margin-top: -4rem;
+  margin-top: -4rem;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -513,22 +515,22 @@ br {
 }
 
 .up-arrow {
-    font-size: 4rem;
-    position: fixed;
-    bottom: 5%;
-    right: 3%;
-    color: var(--primary-color);
-    cursor: pointer;
-    &:hover {
-      transform: rotate(360deg);
-      transition-duration: 1s;
-      color: var(--secondary);
-    }
-    &:active {
-      color: var(--secondary);
-      font-size: 6rem;
-    }
+  font-size: 4rem;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  color: var(--primary-color);
+  cursor: pointer;
+  &:hover {
+    transform: rotate(360deg);
+    transition-duration: 1s;
+    color: var(--secondary);
   }
+  &:active {
+    color: var(--secondary);
+    font-size: 6rem;
+  }
+}
 
 /* LOADER */
 
@@ -712,7 +714,6 @@ br {
   .box button {
     margin: 0 11rem;
   }
-  
 
   .login {
     width: 100%;

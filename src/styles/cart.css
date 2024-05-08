@@ -12,10 +12,12 @@
   --accent: #ff8fc8;
 }
 
-section {
-  margin-top: 10rem;
-  padding: 4rem 8%;
-}
+.cart__section {
+    display: flex;
+    gap: 3rem;
+    margin-top: 10rem;
+    padding: 6rem 8%;
+  }
 
 .emptycart__box {
   background-color: rgba(20, 20, 20, 0.3);
@@ -46,10 +48,7 @@ h4 {
   font-size: 2rem;
 }
 
-.section {
-  display: flex;
-  gap: 3rem;
-}
+
 
 .cartbox {
   flex: 1 1 58%;
@@ -177,7 +176,7 @@ hr {
 }
 
 @media (max-width: 768px) {
-  .section {
+  .cart__section {
     flex-direction: column;
   }
 

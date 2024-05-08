@@ -6,12 +6,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useEffect } from "react";
 import { CartContext } from "./CartContext.jsx";
 import { useContext } from "react";
+import { UserContext } from "./UserContext.jsx";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [toggle, setToggle] = useState(false);
   const { cart } = useContext(CartContext);
-  //   const [cart, setCart] = useState(mycart);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {}, [cart]);
 
@@ -60,7 +61,10 @@ const Navbar = () => {
         </nav>
 
         <div className="header__btn">
-          <button className="login-btn">
+          <button
+            className="login-btn"
+            style={{ display: user.email ? "none" : "block" }}
+          >
             {" "}
             <Link to={`/login`} className="link">
               Login
@@ -105,7 +109,10 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="mobilemenu-btn">
-            <button className="login-btn">
+            <button
+              className="login-btn"
+              style={{ display: user.email ? "none" : "block" }}
+            >
               <Link className="link" to={`/login`}>
                 Login
               </Link>{" "}
