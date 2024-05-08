@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 import { CartContext } from "../components/CartContext.jsx";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,8 @@ const Shop = () => {
   const [searchData, setSearchData] = useState("");
   const { cart, updateGlobalState } = useContext(CartContext);
   const [newCart, setNewCart] = useState(cart);
+    const notify = () => toast("New Item added to Cart!");
+
 
   useEffect(() => {
     fetchProducts();
@@ -50,6 +53,7 @@ const Shop = () => {
   const handleNewCart = (product) => {
     setNewCart((prevCart) => [...(prevCart.cartItems || []), product]);
     updateGlobalState(product);
+    notify()
   };
 
   const filteredProducts = products.filter((product) =>
@@ -130,6 +134,7 @@ const Shop = () => {
             </div>
           </>
         )}
+        <ToastContainer position="top-center"></ToastContainer>
       </section>
       <Footer />
     </>

@@ -333,7 +333,6 @@ h1 {
 
 .box .price {
   background-color: rgba(20, 20, 20, 0.8);
-  /* margin: 0 auto; */
   padding-top: 0.5rem;
   margin-top: 0rem;
   color: green;
@@ -342,7 +341,7 @@ h1 {
 }
 
 .box button {
-  margin: 0 4rem;
+  margin: 0 5rem;
   height: 3rem;
 }
 
@@ -387,6 +386,7 @@ footer li {
   width: 80%;
   padding: 0 10%;
   margin: 2rem auto;
+  margin-top: 5rem;
 }
 
 .login .right-box {
@@ -458,9 +458,11 @@ br {
 
 /* about section */
 .about__box {
+    margin-top: -4rem;
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  background-color: rgba(225, 225, 225, 0.8);
   gap: 1rem;
   align-items: center;
   justify-content: center;
@@ -469,11 +471,11 @@ br {
 }
 
 .about__box h3 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .about__box h5 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .about__box button {
@@ -510,6 +512,24 @@ br {
   color: green;
 }
 
+.up-arrow {
+    font-size: 4rem;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    color: var(--primary-color);
+    cursor: pointer;
+    &:hover {
+      transform: rotate(360deg);
+      transition-duration: 1s;
+      color: var(--secondary);
+    }
+    &:active {
+      color: var(--secondary);
+      font-size: 6rem;
+    }
+  }
+
 /* LOADER */
 
 .spinner-box {
@@ -520,6 +540,9 @@ br {
   align-items: center;
   justify-content: center;
   animation: spin3D 2.8s linear 0s infinite;
+  position: absolute;
+  top: 18%;
+  right: 50%;
 }
 .leo-border-1 {
   position: absolute;
@@ -685,6 +708,11 @@ br {
   .homepage__section .lowerbox h1 {
     font-size: 2.3rem;
   }
+
+  .box button {
+    margin: 0 11rem;
+  }
+  
 
   .login {
     width: 100%;

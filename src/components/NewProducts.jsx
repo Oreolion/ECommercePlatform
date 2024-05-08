@@ -3,11 +3,15 @@ import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import { ToastContainer, toast } from 'react-toastify';
+
 const NewProducts = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { cart, updateGlobalState } = useContext(CartContext);
   const [, setNewCart] = useState(cart);
+  const notify = () => toast("New Item added to Cart!");
+
 
   useEffect(() => {
     fetchNewProducts();
@@ -30,6 +34,8 @@ const NewProducts = () => {
   const handleNewCart = (product) => {
     setNewCart((prevCart) => [...(prevCart.cartItems || []), product]);
     updateGlobalState(product);
+    notify()
+
   };
 
   return (
@@ -59,6 +65,7 @@ const NewProducts = () => {
                 );
               })}
             </div>
+            <ToastContainer position="top-center"></ToastContainer>
           </section>
         </>
       )}

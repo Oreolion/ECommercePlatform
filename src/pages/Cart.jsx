@@ -4,11 +4,15 @@ import { CartContext } from "../components/CartContext.jsx";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Cart = () => {
   const { cart, clearGlobalState } = useContext(CartContext);
   const navigate = useNavigate();
   const [count, setCount] = useState(0);
+  const notify = () => toast("You Cleared Your Cart!");
+
 
   useEffect(() => {
     console.log(cart);
@@ -18,6 +22,7 @@ const Cart = () => {
     try {
       window.confirm("Are you sure you want to clear your cart?");
       clearGlobalState();
+      notify()
 
       console.log("Cart cleared successfully!");
     } catch (error) {
@@ -79,7 +84,7 @@ const Cart = () => {
           <div className="rightbox">
             <div className="subtotal boxed">
               <p>Subtotals(5 Items):</p>
-              <p>{cart.totalAmount}</p>
+              <p>{cart.totalAmount.toFixed(2)}</p>
             </div>
             <div className="discount boxed">
               <p>Discount(5% off):</p>
@@ -93,6 +98,7 @@ const Cart = () => {
             <button onClick={()=> navigate("/checkout")}>Proceed to Checkout</button>
           </div>
         )}
+        <ToastContainer position="top-center"></ToastContainer>
       </section>
     </>
   );
