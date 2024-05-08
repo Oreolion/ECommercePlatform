@@ -19,8 +19,6 @@ const Shop = () => {
     console.log(newCart);
   }, [newCart]);
 
-
-
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
@@ -89,7 +87,11 @@ const Shop = () => {
               </div>
             </div>
             <div className="product__box">
-            <h2> SHOP QUALITY WEARS, BAGS, SHOES, JEWELRIES AND OTHER ACCESSORIES.</h2>
+              <h2>
+                {" "}
+                SHOP QUALITY WEARS, BAGS, SHOES, JEWELRIES AND OTHER
+                ACCESSORIES.
+              </h2>
               {filteredProducts.length > 0 ? (
                 data ? (
                   filteredProducts
@@ -100,7 +102,10 @@ const Shop = () => {
                           <img src={filteredItem.image} alt="" />
                         </div>
                         <h3>{filteredItem.title}</h3>
-                        <h3 className="price"   onClick={() => handleNewCart(filteredItem)}>${filteredItem.price}</h3>
+                        <h3 className="price">${filteredItem.price}</h3>
+                        <button onClick={() => handleNewCart(filteredItem)}>
+                          Add to Cart
+                        </button>
                       </div>
                     ))
                 ) : (
@@ -110,12 +115,10 @@ const Shop = () => {
                         <img src={product.image} alt="" />
                       </div>
                       <h3>{product.title}</h3>
-                      <h3
-                        className="price"
-                        onClick={() => handleNewCart(product)}
-                      >
-                        {product.price}
-                      </h3>
+                      <h3 className="price">{product.price}</h3>
+                      <button onClick={() => handleNewCart(product)}>
+                        Add to Cart
+                      </button>
                     </div>
                   ))
                 )

@@ -131,7 +131,6 @@ h4 {
   justify-content: center;
 }
 
-
 .clr-btn {
   width: 34rem;
   font-size: 1.4rem;
@@ -174,7 +173,7 @@ hr {
 }
 
 .total p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -206,7 +205,66 @@ hr {
 }
 
 @media (max-width: 480px) {
+  section {
+    padding: 3rem 3%;
+  }
   .product__info p {
     display: none;
+  }
+
+  .cartbox {
+    padding: 1rem;
+  }
+
+  .cartbox .header {
+    flex-direction: column;
+    width: 25rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cartbox .header button {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cartbox .innerbox {
+    width: 23rem;
+    height: 34rem;
+    flex-direction: column;
+  }
+
+  .cartbox .imgbox {
+    height: 20rem;
+    width: 19rem;
+    margin: 0;
+    margin-bottom: -2rem;
+  }
+
+  .clr-btn {
+    width: 20rem;
+    font-size: 1.4rem;
+    margin-left: 1.5rem;
+  }
+
+  .rightbox {
+    padding: 2rem;
+    width: 25rem;
+    height: 20rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .cartbox .header {
+    width: 22rem;
+  }
+
+  .cartbox .innerbox {
+    width: 22rem;
+    height: 33rem;
+  }
+  .rightbox {
+    width: 23rem;
   }
 }

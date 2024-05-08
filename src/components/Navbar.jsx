@@ -10,12 +10,10 @@ import { useContext } from "react";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const { cart,  } = useContext(CartContext);
-//   const [cart, setCart] = useState(mycart);
+  const { cart } = useContext(CartContext);
+  //   const [cart, setCart] = useState(mycart);
 
-  useEffect(() => {
-    }, [cart]);
-
+  useEffect(() => {}, [cart]);
 
   const handleMenuBtn = () => {
     setToggle(!toggle);
@@ -58,11 +56,6 @@ const Navbar = () => {
                 About Us
               </Link>
             </li>
-            <li>
-              <Link to={`/contact`} className="link">
-                Contact Us
-              </Link>
-            </li>
           </ul>
         </nav>
 
@@ -75,8 +68,9 @@ const Navbar = () => {
           </button>
         </div>
         <Link to={`/cart`} className="cart link">
-          
-          <div className="cartsize">{!cart.cartItems.length ? 0 : cart.cartItems.length}</div>
+          <div className="cartsize">
+            {!cart.cartItems.length ? 0 : cart.cartItems.length}
+          </div>
           <FaShoppingCart size={30}></FaShoppingCart>
         </Link>
         {!toggle ? (
@@ -109,22 +103,12 @@ const Navbar = () => {
                 About Us
               </Link>
             </li>
-            <li>
-              <Link to={`/contact`} className="link">
-                Contact Us
-              </Link>
-            </li>
           </ul>
           <div className="mobilemenu-btn">
             <button className="login-btn">
               <Link className="link" to={`/login`}>
                 Login
               </Link>{" "}
-            </button>
-            <button className="signup-btn">
-              <Link className="link" to={`/signup`}>
-                Sign Up
-              </Link>
             </button>
           </div>
         </nav>

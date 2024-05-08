@@ -50,10 +50,11 @@ const NewProducts = () => {
                     <h3>{product.title}</h3>
                     <h3
                       className="price"
-                      onClick={() => handleNewCart(product)}
+                     
                     >
                       ${product.price}
                     </h3>
+                    <button  onClick={() => handleNewCart(product)}>Add to Cart</button>
                   </div>
                 );
               })}
