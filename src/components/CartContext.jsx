@@ -23,7 +23,7 @@ const CartContextProvider = ({ children }) => {
     setCart((prev) => ({
         ...prev,
         totalAmount: prev.totalAmount + newState.price,
-        numberOfItems: prev.numberOfItems + 1,
+        // numberOfItems: prev.numberOfItems + 1,
         cartItems: [...prev.cartItems, newState],
       }));
   };
