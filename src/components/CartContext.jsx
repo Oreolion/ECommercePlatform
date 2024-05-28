@@ -8,15 +8,31 @@ const cartInitialState = {
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case "UPDATE_ITEM_COUNT":
-      return {
-        ...state,
-        cartItems: state.cartItems.map((item) =>
+    case "UPDATE_ITEM_COUNT": {
+      const updatedCartItems = state.cartItems
+        .map((item) =>
           item.title === action.payload.title
             ? { ...item, count: action.payload.count }
             : item
-        ),
+        )
+        .filter((item) => item.count > 0);
+
+      const totalAmount = updatedCartItems.reduce(
+        (sum, item) => sum + item.price * item.count,
+        0
+      );
+      const numberOfItems = updatedCartItems.reduce(
+        (sum, item) => sum + item.count,
+        0
+      );
+      return {
+        ...state,
+        cartItems: updatedCartItems,
+        totalAmount,
+        numberOfItems,
       };
+    }
+
     case "CLEAR_CART":
       return {
         ...state,
@@ -24,30 +40,7 @@ const cartReducer = (state, action) => {
         numberOfItems: 0,
         totalAmount: 0,
       };
-    case "ADD_ITEM": {
-      const existingItem = state.cartItems.find(
-        (item) => item.title === action.payload.title
-      );
-      if (existingItem) {
-        return {
-          ...state,
-          cartItems: state.cartItems.map((item) =>
-            item.title === action.payload.title
-              ? { ...item, count: item.count + 1 }
-              : item
-          ),
-          totalAmount: state.totalAmount + action.payload.price,
-          numberOfItems: state.numberOfItems + 1,
-        };
-      } else {
-        return {
-          ...state,
-          cartItems: [...state.cartItems, { ...action.payload, count: 1 }],
-          totalAmount: state.totalAmount + action.payload.price,
-          numberOfItems: state.numberOfItems + 1,
-        };
-      }
-    }
+  
     default:
       return state;
   }
@@ -64,7 +57,6 @@ const CartContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state));
   });
-
 
   const getState = () => {
     const storedCart = localStorage.getItem("cart");

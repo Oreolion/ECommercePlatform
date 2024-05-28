@@ -9,21 +9,21 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const Cart = () => {
-  const { cart, updateItemCount, updateGlobalState, clearGlobalState } = useContext(CartContext);
+  const { cart, updateItemCount, clearGlobalState } = useContext(CartContext);
   const navigate = useNavigate();
   const notify = () => toast("You Cleared Your Cart!");
 
   const increaseItemCount = (item) => {
     const newCount = item.count + 1;
     updateItemCount(item.title, newCount);
-    updateGlobalState(item);
+    // updateGlobalState(item);
 
   };
 
   const decreaseItemCount = (item) => {
     const newCount = item.count > 1 ? item.count - 1 : 1;
     updateItemCount(item.title, newCount);
-    updateGlobalState(item);
+    // updateGlobalState(item);
   };
 
 

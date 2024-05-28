@@ -1,7 +1,7 @@
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import picture1 from "../assets/images/clark-street-mercantile-qnKhZJPKFD8-unsplash.jpg";
 import picture2 from "../assets/images/pexels-bohlemedia-1884581.jpg";
 import picture3 from "../assets/images/pexels-rdne-5698852.jpg";
@@ -36,7 +36,13 @@ const HomeSlide = () => {
     },
    
   ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    }, 7000);
 
+    return () => clearInterval(interval); // Clean up the interval on unmount
+  }, [slides.length]);
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -56,6 +62,7 @@ const HomeSlide = () => {
       <section className="homepage__section">
         <div className="img__box">
           <img
+          key={currentIndex}
             className="animate__animated animate__fadeInRight"
             src={slides[currentIndex].picture}
             alt="img1"
