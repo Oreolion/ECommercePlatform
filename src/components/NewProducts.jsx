@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { ToastContainer, toast } from 'react-toastify';
 
-const NewProducts = () => {
+const  NewProducts = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { cart, updateGlobalState } = useContext(CartContext);

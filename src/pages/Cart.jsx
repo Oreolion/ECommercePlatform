@@ -3,15 +3,29 @@ import "../styles/cart.css";
 import { CartContext } from "../components/CartContext.jsx";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 
+
 const Cart = () => {
-  const { cart, clearGlobalState } = useContext(CartContext);
+  const { cart, updateItemCount, updateGlobalState, clearGlobalState } = useContext(CartContext);
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
   const notify = () => toast("You Cleared Your Cart!");
+
+  const increaseItemCount = (item) => {
+    const newCount = item.count + 1;
+    updateItemCount(item.title, newCount);
+    updateGlobalState(item);
+
+  };
+
+  const decreaseItemCount = (item) => {
+    const newCount = item.count > 1 ? item.count - 1 : 1;
+    updateItemCount(item.title, newCount);
+    updateGlobalState(item);
+  };
+
 
 
   useEffect(() => {
@@ -55,9 +69,9 @@ const Cart = () => {
                         <div className="lowinfobox">
                           <h3 className="price">${item.price}</h3>
                           <div className="quantity">
-                            <span onClick={() => setCount(count - 1)}>-</span>
-                            <span>{count}</span>
-                            <span onClick={() => setCount(count + 1)}>+</span>
+                            <span onClick={() => decreaseItemCount(item)}>-</span>
+                            <span>{item.count}</span>
+                            <span onClick={() => increaseItemCount(item)}>+</span>
                           </div>
                         </div>
                       </div>
@@ -83,7 +97,7 @@ const Cart = () => {
         {cart.cartItems.length > 0 && (
           <div className="rightbox">
             <div className="subtotal boxed">
-              <p>Subtotals(5 Items):</p>
+              <p>Subtotals({cart.numberOfItems} Items):</p>
               <p>{cart.totalAmount.toFixed(2)}</p>
             </div>
             <div className="discount boxed">
